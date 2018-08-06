@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="topTabBarClass">
+  <block wx:for="{{tArray}}" wx:key="key" style="display: flex">
+    <view class="topTypeListClass {{index == curpage? 'curPage':''}}" bindtap="typeClick" data-idx="{{index}}">{{item}}</view>
+  </block>
+</view>
+
+<!--新闻列表-->
+<!--scroll-y="true":垂直滚动-->
+<!--高度：viewHeight-->
+<!--lower-threshold：距离底部50，调用addMoreData事件-->
+<!--下拉到底部触发addData事件，加载更多-->
+
+<!--<scroll-view scroll-y="true" style="width: 100%; height:{{viewHeight}}px" lower-threshold="50" bindscrolltolower="addMoreData">-->
+<scroll-view scroll-y="true" style="margin-top:80rpx; width: 100%; height:{{viewHeight}}px">
+    <view class="news-item" wx:for="{{detailData}}" wx:key="key" data-index="{{index}}" bindtap='onTapDetail'>
+      <view class="cell-wrapper">
+        <view class="title">{{item.title}}</view>
+        <view class="date-source">
+          <view class="source">{{item.source}}</view>
+          <view class="date">{{item.date}}</view>
+        </view>
+      </view>
+      <image class="news-image" src="{{item.imagePath}}"></image>
+    </view>
+    
+</scroll-view>

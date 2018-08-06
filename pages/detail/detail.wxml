@@ -1,0 +1,15 @@
+<view class="news_title">{{news_title}}</view>
+<view class="date_source_readCount date">{{news_date}}</view>
+<view class="date_source_readCount source_readCount">
+  <view class="source">{{news_source}}</view>
+  <view class="readCount">阅读 {{news_readCount}}</view>
+</view>
+<view class="news_content">
+  <block wx:for="{{news_contents}}" wx:key="key">
+    <text>\n</text>
+    <image class="news_image" wx:if="{{item.type === 'image'}}" src="{{item.src}}"  mode="scaleToFill"></image> 
+    <view class="news_p" wx:elif="{{item.type === 'p'}}">{{item.text}}</view>
+    <view class="news_strong" wx:else="{{item.type === 'strong'}}">{{item.text}}</view>
+  </block>
+</view>
+ <text>\n\n</text>
